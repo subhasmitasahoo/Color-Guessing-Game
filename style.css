@@ -70,3 +70,7 @@ button:hover{
 	color: white;
 	background-color: steelblue;
 }
+
+#score{
+	text-align: center;
+}

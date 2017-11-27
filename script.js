@@ -7,7 +7,10 @@ var resultDisplay = document.querySelector("#result");
 var header = document.querySelector("#header");
 var reset = document.querySelector("#reset");
 var modeButtons = document.querySelectorAll(".mode");
-
+var score = 0;
+var total = 0;
+var scoreDisplay = document.querySelector("#won");
+var totalDisplay = document.querySelector("#total")
 
 init();
 
@@ -20,17 +23,21 @@ function init(){
 function setUpSquareBox(){
 	for(var i = 0;i<sqrList.length;i++){
 	sqrList[i].addEventListener("click",function(){
+		total++;
 		if(this.style.backgroundColor!=pickedColor){
 			alert("Wrong choice!");
 			this.style.backgroundColor = "black";
 			resultDisplay.textContent = "Try Again!"
 		}
 		else{
+			score++;
 			alert("correct");
 			resultDisplay.textContent = "Correct!"
 			reset.textContent = "Play Again?";
 			changeColors(pickedColor);
 		}
+		scoreDisplay.textContent = score;
+		totalDisplay.textContent = total;
 	});
 }
 }
